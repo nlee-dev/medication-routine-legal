@@ -13,6 +13,7 @@
     --text-secondary: #6B6B78;
     --bg: #FCFCFD;
     --line: #EEEEF2;
+    --brand: #FF03AB;
   }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
@@ -74,10 +75,54 @@
   }
   hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
   .footer { font-size: 13px; margin-top: 40px; }
+
+  /* 언어 전환 토글 */
+  .lang-switch {
+    display: inline-flex;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    overflow: hidden;
+    margin: 0 0 24px;
+    background: #fff;
+  }
+  .lang-switch button {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 0;
+    background: transparent;
+    padding: 7px 16px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    line-height: 1.4;
+  }
+  .lang-switch button[aria-pressed="true"] {
+    background: var(--brand);
+    color: #fff;
+  }
+  [data-lang] { display: none; }
+  [data-lang].is-active { display: block; }
+  .lang-note {
+    font-size: 13px;
+    margin-top: 24px;
+    padding: 12px 16px;
+    background: #F7F7FA;
+    border-radius: 10px;
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
+
+<div class="lang-switch" role="group" aria-label="Language">
+  <button type="button" data-set-lang="ko" aria-pressed="true">한국어</button>
+  <button type="button" data-set-lang="en" aria-pressed="false">English</button>
+</div>
+
+<!-- ===================== 한국어 ===================== -->
+<div data-lang="ko" class="is-active">
 
 <h1>개인정보처리방침</h1>
 <p class="updated">시행일: [시행일]</p>
@@ -175,5 +220,145 @@
 <p class="footer">공고일: [시행일] · 시행일: [시행일]</p>
 
 </div>
+
+<!-- ===================== English ===================== -->
+<div data-lang="en">
+
+<h1>Privacy Policy</h1>
+<p class="updated">Effective date: [시행일]</p>
+
+<p><strong>Popill</strong> (the "App") respects your privacy and complies with applicable laws, including the Personal Information Protection Act of the Republic of Korea.</p>
+<p>The App <strong>does not collect your personal information and does not operate any server.</strong> All information you enter is stored solely on your own device.</p>
+
+<h2>1. Information We Collect</h2>
+<p>The App has no sign-up process and does not collect any personally identifiable information such as your name, phone number, or email address.</p>
+<p>The information you enter in the App, listed below, is <strong>stored only in your device's internal storage and is never transmitted externally.</strong></p>
+<table>
+  <tr><th>Category</th><th>Details</th></tr>
+  <tr><td>Medication</td><td>Medication name, intake times, dose per intake, quantity on hand</td></tr>
+  <tr><td>Prescription</td><td>Hospital name, doctor name, department, prescription date, number of days prescribed</td></tr>
+  <tr><td>Intake records</td><td>Whether a dose was taken, and when</td></tr>
+  <tr><td>App settings</td><td>Notifications on/off, notification times</td></tr>
+</table>
+<p>This information exists only on your device and cannot be accessed by the developer or any third party.</p>
+
+<h2>2. Purpose of Use</h2>
+<p>Information stored on your device is used only for the following purposes.</p>
+<ul>
+  <li>Displaying your intake schedule and managing intake records</li>
+  <li>Calculating remaining quantity and refill timing</li>
+  <li>Sending notifications for intake times, low stock, and refill timing</li>
+</ul>
+
+<h2>3. Retention Period</h2>
+<ul>
+  <li>Information you enter is kept on your device until you delete it yourself or uninstall the App.</li>
+  <li><strong>Uninstalling the App deletes all stored information.</strong></li>
+  <li>The developer does not retain this information separately.</li>
+</ul>
+
+<h2>4. Disclosure to Third Parties</h2>
+<p>The App does not provide your personal information to third parties.</p>
+<p>However, communication between your device and external services occurs in the following cases.</p>
+
+<h3>4.1 Medication Information Lookup</h3>
+<p>When you search for a medication, the <strong>search term</strong> you enter is sent to the public data API provided by the Ministry of Food and Drug Safety of Korea in order to retrieve medication information.</p>
+<ul>
+  <li>Transmitted: the search term (medication name)</li>
+  <li>Not transmitted: any information that could identify you, your intake records, or your prescription information</li>
+  <li>Retrieved medication information is stored on your device.</li>
+</ul>
+
+<h3>4.2 Device Backup</h3>
+<p>If you use iCloud Backup (iOS) or Google Backup (Android), App data may be backed up to <strong>your own cloud account</strong> through operating system functionality.</p>
+<ul>
+  <li>This is a feature provided by the operating system; neither the App nor the developer can access that data.</li>
+  <li>Handling of backup data is governed by Apple's and Google's respective privacy policies.</li>
+  <li>If you do not want backups, you can disable this feature in your device settings.</li>
+</ul>
+
+<h2>5. Outsourcing of Processing</h2>
+<p>The App does not outsource any personal information processing to external parties.</p>
+
+<h2>6. Your Rights and How to Exercise Them</h2>
+<p>You may do the following directly within the App at any time.</p>
+<ul>
+  <li>View, edit, or delete registered medications and prescriptions</li>
+  <li>Edit intake records</li>
+  <li>Turn notifications on or off and change notification times</li>
+</ul>
+<p>Because all information is stored on your device, uninstalling the App deletes everything immediately.</p>
+
+<h2>7. Security Measures</h2>
+<ul>
+  <li>The App does not transmit your information externally or store it on any server.</li>
+  <li>Data stored on your device is protected by the app sandbox and device encryption policies provided by the operating system.</li>
+  <li>Enabling a screen lock on your device provides additional protection.</li>
+</ul>
+
+<h2>8. Notification Permission</h2>
+<p>Notification permission is used to remind you of intake times, low stock, and refill timing.</p>
+<ul>
+  <li>All notifications are <strong>local notifications</strong> processed on your device and are not delivered through any external server.</li>
+  <li>You can revoke notification permission at any time in the App settings or your device settings.</li>
+</ul>
+
+<h2>9. Children Under 14</h2>
+<p>The App is not directed at children under the age of 14 and does not knowingly collect information from them.</p>
+
+<h2>10. Privacy Officer and Contact</h2>
+<p>For inquiries regarding the handling of personal information, please contact us below.</p>
+<ul>
+  <li>Contact: Naeun Lee</li>
+  <li>Email: nleedev0@gmail.com</li>
+</ul>
+
+<h2>11. Changes to This Policy</h2>
+<p>This policy may be revised in accordance with changes in law or in the service. Any changes will be announced within the App or on this page.</p>
+
+<p class="lang-note">This English version is provided for reference only. In the event of any discrepancy between the Korean and English versions, the Korean version shall prevail.</p>
+
+<hr>
+<p class="footer">Announced: [시행일] · Effective: [시행일]</p>
+
+</div>
+
+</div>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('[data-set-lang]');
+  var sections = document.querySelectorAll('[data-lang]');
+
+  function apply(lang) {
+    for (var i = 0; i < sections.length; i++) {
+      var el = sections[i];
+      if (el.getAttribute('data-lang') === lang) {
+        el.classList.add('is-active');
+      } else {
+        el.classList.remove('is-active');
+      }
+    }
+    for (var j = 0; j < buttons.length; j++) {
+      var btn = buttons[j];
+      btn.setAttribute('aria-pressed',
+        btn.getAttribute('data-set-lang') === lang ? 'true' : 'false');
+    }
+    document.documentElement.lang = lang;
+    document.title = (lang === 'ko') ? '개인정보처리방침' : 'Privacy Policy';
+  }
+
+  for (var k = 0; k < buttons.length; k++) {
+    buttons[k].addEventListener('click', function () {
+      apply(this.getAttribute('data-set-lang'));
+    });
+  }
+
+  // 접속자 언어 자동 감지 — 한국어가 아니면 영문으로 시작
+  var nav = (navigator.language || 'ko').toLowerCase();
+  apply(nav.indexOf('ko') === 0 ? 'ko' : 'en');
+})();
+</script>
+
 </body>
 </html>
