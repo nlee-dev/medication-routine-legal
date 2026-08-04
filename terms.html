@@ -60,10 +60,54 @@
   .notice strong { color: var(--brand); }
   hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
   .footer { font-size: 13px; margin-top: 40px; }
+
+  /* 언어 전환 토글 */
+  .lang-switch {
+    display: inline-flex;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    overflow: hidden;
+    margin: 0 0 24px;
+    background: #fff;
+  }
+  .lang-switch button {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 0;
+    background: transparent;
+    padding: 7px 16px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    line-height: 1.4;
+  }
+  .lang-switch button[aria-pressed="true"] {
+    background: var(--brand);
+    color: #fff;
+  }
+  [data-lang] { display: none; }
+  [data-lang].is-active { display: block; }
+  .lang-note {
+    font-size: 13px;
+    margin-top: 24px;
+    padding: 12px 16px;
+    background: #F7F7FA;
+    border-radius: 10px;
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
+
+<div class="lang-switch" role="group" aria-label="Language">
+  <button type="button" data-set-lang="ko" aria-pressed="true">한국어</button>
+  <button type="button" data-set-lang="en" aria-pressed="false">English</button>
+</div>
+
+<!-- ===================== 한국어 ===================== -->
+<div data-lang="ko" class="is-active">
 
 <h1>이용약관</h1>
 <p class="updated">시행일: [시행일]</p>
@@ -195,5 +239,179 @@
 <p class="footer">공고일: [시행일] · 시행일: [시행일]</p>
 
 </div>
+
+<!-- ===================== English ===================== -->
+<div data-lang="en">
+
+<h1>Terms of Service</h1>
+<p class="updated">Effective date: [시행일]</p>
+
+<h2>Article 1 (Purpose)</h2>
+<p>These Terms govern the rights, obligations, and responsibilities between <strong>Naeun Lee</strong> (the "Developer") and users in connection with the use of the mobile application <strong>Popill</strong> (the "App").</p>
+
+<h2>Article 2 (Effect and Amendment of the Terms)</h2>
+<ol>
+  <li>These Terms apply to all users who install and use the App.</li>
+  <li>The Developer may amend these Terms within the limits permitted by applicable law, and will announce any amendment within the App or on this page.</li>
+  <li>If you do not agree to the amended Terms, you may stop using the App and uninstall it.</li>
+</ol>
+
+<h2>Article 3 (Scope of the Service)</h2>
+<p>The App provides the following features so that you can record and manage your own medications.</p>
+<ul>
+  <li>Registering, editing, and deleting medications and prescriptions</li>
+  <li>Recording intake and reviewing intake history</li>
+  <li>Calculating remaining quantity and refill timing</li>
+  <li>Notifications for intake times, low stock, and refill timing</li>
+</ul>
+<p>The App can be used <strong>without creating an account</strong>, and all information you enter is <strong>stored only on your device</strong>.</p>
+
+<h2>Article 4 (Not a Medical Service)</h2>
+<div class="notice">
+  <p><strong>The App is not a medical device and does not provide medical diagnosis, prescription, or treatment.</strong></p>
+</div>
+<ol>
+  <li>All features of the App are <strong>reference tools</strong> intended to help you record and manage your own medication schedule.</li>
+  <li>Notifications, remaining-quantity calculations, and refill timing are <strong>simple calculations</strong> based on the information you enter, not medical judgments.</li>
+  <li>Decisions about whether to take a medication, dosage, discontinuation, or combination with other drugs <strong>must be made in consultation with a physician or pharmacist</strong>.</li>
+  <li>You should not rely solely on the App's information or notifications when making medication decisions.</li>
+  <li>In an emergency or if you experience unusual symptoms, seek medical attention immediately.</li>
+</ol>
+
+<h2>Article 5 (Source and Limitations of Medication Information)</h2>
+<ol>
+  <li>Medication information provided in the App (efficacy, dosage instructions, precautions, storage, etc.) is based on <strong>public data provided by the Ministry of Food and Drug Safety of Korea</strong>.</li>
+  <li>Such information is presented as originally published; the Developer does not modify or verify its contents.</li>
+  <li>The Developer is not responsible for inaccuracies arising from errors, omissions, or delayed updates in the public data.</li>
+  <li>Please confirm accurate medication information through the product leaflet or a physician or pharmacist.</li>
+</ol>
+
+<h2>Article 6 (Limitations of the Notification Feature)</h2>
+<ol>
+  <li>Notifications are <strong>local notifications</strong> processed on your device and may be delayed or not displayed depending on the state of your device.</li>
+  <li>Notifications may not work correctly in the following cases.
+    <ul>
+      <li>Notification permission for the device or App has been revoked</li>
+      <li>Power-saving mode, Do Not Disturb, or similar modes are enabled</li>
+      <li>The device is turned off or the App has been force-quit</li>
+      <li>The operating system's battery optimization policy restricts the App</li>
+    </ul>
+  </li>
+  <li><strong>The Developer is not responsible for missed doses resulting from missed notifications.</strong> Please treat notifications as a supplementary aid only.</li>
+</ol>
+
+<h2>Article 7 (Data Storage and Loss)</h2>
+<ol>
+  <li>All information you enter is <strong>stored only on your device</strong>, and the Developer does not retain it separately.</li>
+  <li>Data may be deleted or become unrecoverable in the following cases.
+    <ul>
+      <li>The App is uninstalled</li>
+      <li>The device is reset, lost, or damaged</li>
+      <li>The device is replaced while device backup (iCloud/Google Backup) is not enabled</li>
+    </ul>
+  </li>
+  <li><strong>The Developer cannot recover your data.</strong> We recommend enabling device backup to preserve it.</li>
+</ol>
+
+<h2>Article 8 (User Obligations)</h2>
+<p>You must not do any of the following.</p>
+<ol>
+  <li>Reverse engineer, decompile, or modify the App</li>
+  <li>Use the App inappropriately for medical practice or to manage another person's medication</li>
+  <li>Violate applicable law or infringe the rights of others</li>
+</ol>
+
+<h2>Article 9 (Changes to and Suspension of the Service)</h2>
+<ol>
+  <li>The Developer may change features of the App or suspend parts of it in order to improve the service.</li>
+  <li>The service may be suspended in the following cases.
+    <ul>
+      <li>Discontinuation of, or policy changes to, the Ministry of Food and Drug Safety public data API</li>
+      <li>Feature restrictions arising from operating system policy changes</li>
+      <li>Termination of the App</li>
+    </ul>
+  </li>
+  <li>In the event of termination, notice will be given in advance within the App or on this page.</li>
+</ol>
+
+<h2>Article 10 (Intellectual Property)</h2>
+<ol>
+  <li>Rights to the App's design, source code, and trademarks belong to the Developer.</li>
+  <li>Licenses for open source software used by the App can be viewed in the App under "App Info &gt; Open Source Licenses."</li>
+  <li>Copyright in medication information belongs to the respective providing institution.</li>
+</ol>
+
+<h2>Article 11 (Disclaimer)</h2>
+<ol>
+  <li>The Developer provides the App "as is" and makes no warranty of fitness for any particular purpose.</li>
+  <li>The Developer is not liable for damages arising from the following.
+    <ul>
+      <li>Consequences of errors in the information you enter</li>
+      <li>Missed doses due to notifications not received or delayed</li>
+      <li>Consequences of inaccurate medication information</li>
+      <li>Data loss due to device replacement, reset, or malfunction</li>
+      <li>Natural disaster or comparable force majeure</li>
+    </ul>
+  </li>
+  <li>However, liability for damages caused by the Developer's willful misconduct or gross negligence shall follow applicable law.</li>
+</ol>
+
+<h2>Article 12 (Governing Law and Jurisdiction)</h2>
+<ol>
+  <li>These Terms shall be interpreted in accordance with the laws of the Republic of Korea.</li>
+  <li>Any dispute arising in connection with use of the App shall follow the procedures prescribed by applicable law.</li>
+</ol>
+
+<h2>Article 13 (Contact)</h2>
+<p>For inquiries regarding these Terms, please contact us below.</p>
+<ul>
+  <li>Contact: Naeun Lee</li>
+  <li>Email: nleedev0@gmail.com</li>
+</ul>
+
+<p class="lang-note">This English version is provided for reference only. In the event of any discrepancy between the Korean and English versions, the Korean version shall prevail.</p>
+
+<hr>
+<p class="footer">Announced: [시행일] · Effective: [시행일]</p>
+
+</div>
+
+</div>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('[data-set-lang]');
+  var sections = document.querySelectorAll('[data-lang]');
+
+  function apply(lang) {
+    for (var i = 0; i < sections.length; i++) {
+      var el = sections[i];
+      if (el.getAttribute('data-lang') === lang) {
+        el.classList.add('is-active');
+      } else {
+        el.classList.remove('is-active');
+      }
+    }
+    for (var j = 0; j < buttons.length; j++) {
+      var btn = buttons[j];
+      btn.setAttribute('aria-pressed',
+        btn.getAttribute('data-set-lang') === lang ? 'true' : 'false');
+    }
+    document.documentElement.lang = lang;
+    document.title = (lang === 'ko') ? '이용약관' : 'Terms of Service';
+  }
+
+  for (var k = 0; k < buttons.length; k++) {
+    buttons[k].addEventListener('click', function () {
+      apply(this.getAttribute('data-set-lang'));
+    });
+  }
+
+  // 접속자 언어 자동 감지 — 한국어가 아니면 영문으로 시작
+  var nav = (navigator.language || 'ko').toLowerCase();
+  apply(nav.indexOf('ko') === 0 ? 'ko' : 'en');
+})();
+</script>
+
 </body>
 </html>
